@@ -1,0 +1,30 @@
+<h1>用户管理</h1>
+<p class="saparat"></p>
+<p-dataTable [value]="roles" selectionMode="single" [(selection)]="selectedRole" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+    <p-header>
+        <div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div>
+    </p-header>
+    <p-column field="name" header="roleName" [sortable]="true"></p-column>
+    <p-column field="createTime" header="CreateTime" [sortable]="true"></p-column>
+    <p-column field="creator" header="Creator" [sortable]="true"></p-column>
+    <p-column field="modifyName" header="Modifier" [sortable]="true"></p-column>
+    <p-footer>
+
+    </p-footer>
+</p-dataTable>
+
+<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="role">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="vin">Role Name</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="vin" [(ngModel)]="role.name" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+            <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>

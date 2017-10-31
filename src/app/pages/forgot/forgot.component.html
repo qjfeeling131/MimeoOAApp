@@ -1,0 +1,43 @@
+<div class="login-div">
+    <form class="login-form">
+        <div class="ui-g jx-loginInput">
+            <div class="ui-g-12">
+                <h1 class="forgetPassWord">
+                    忘记密码
+                </h1>
+            </div>
+            <div class="ui-g-12 verificationInfo">
+                {{resetErrorText}}
+            </div>
+            <div class="ui-g-12">
+                <div class="input-box">
+                    <span class="fa fa-user"></span>
+                    <input name="accountName" type="text" placeholder="请输入邮箱"
+                        [(ngModel)]="resetUserInfo.accountName" 
+                        (blur)="verificatEmail()"/>
+                </div>
+            </div>
+            <div class="ui-g-12 ">
+                <div class="ui-g-5">
+                    <div class="input-box">
+                        <input name="verificationCode" type="text" placeholder="验证码"
+                            class="verificationCode"
+                            required
+                            [(ngModel)]="resetUserInfo.verificationCode"/>
+                    </div>
+                </div>
+                <div class="ui-g-2"></div>
+                <div class="ui-g-5">
+                    <button name="button" type="button"
+                        label="{{btnVerification}}" class="ui-button-primary" 
+                        pButton (click)="getVerificationCode()"></button>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <button name="button" type="button" 
+                    label="{{btnReset}}" class="ui-button-primary" 
+                    pButton (click)="sendEmail()"></button>
+            </div>
+        </div>
+    </form>
+</div>

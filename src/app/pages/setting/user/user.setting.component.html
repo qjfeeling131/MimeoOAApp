@@ -1,0 +1,93 @@
+<h1>用户管理</h1>
+<p class="saparat"></p>
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input #searchUserInfo type="text" pInputText size="50" placeholder="搜索" (keyup)="searchUserInfoChange(searchUserInfo.value)">
+</div>
+<p-dataTable [value]="displayUserInfos" sortMode="multiple" [editable]="true" [rows]="10" [paginator]="true" 
+    [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" reorderableColumns="true" [lazy]="true" 
+    #dt exportFilename="users" selectionMode="single" 
+    [(selection)]="selectedUser" (onRowSelect)="onRowSelect($event)" [responsive]="true">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <button type="button" pButton icon="fa-file-o" iconPos="left" label="Add" (click)="showRegistrationPage()" style="float:left"></button>
+        </div>
+    </p-header>
+    <p-column field="name" header="姓名"></p-column>
+    <p-column field="department" header="部门"></p-column>
+    <p-column field="role" header="职位"></p-column>
+    <p-column field="email" header="邮箱" [sortable]="true"></p-column>
+    <p-column field="createTime" header="创建时间" [sortable]="true"></p-column>
+    <p-column field="actions" header="操作"></p-column>
+</p-dataTable>
+<!-- 弹出编辑框 -->
+<p-dialog header="用户权限设置" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" styleClass="userSetting">
+    <div class="ui-grid ui-grid-responsive ui-fluid userAuthoritySetting" *ngIf="user">
+        <div class="ui-grid-row padding-10">
+            <input pInputText id="name" [(ngModel)]="user.name" [disabled]="!isModify"/>
+        </div>
+        <div class="ui-grid-row padding-10">
+            <input pInputText id="department" [(ngModel)]="user.department" [disabled]="!isModify"/>
+        </div>
+        <div class="ui-grid-row padding-10">
+            <input pInputText id="email" [(ngModel)]="user.email" [disabled]="!isModify"/>
+        </div>
+        <div class="padding-10">
+            <p-dropdown [options]="userAuthority" [(ngModel)]="user.role" [style]="{'width':'100%'}"></p-dropdown>
+        </div>
+        <p-pickList [source]="unselectedCategorys" [target]="user.category" sourceHeader="Available" targetHeader="Selected" [responsive]="true"
+            [sourceStyle]="{'height':'200px'}" [targetStyle]="{'height':'200px'}" [style]="{'margin-top':'10px','margin-bottom':'0px'}"
+            filterBy="name" dragdrop="false" sourceFilterPlaceholder="搜索权限" targetFilterPlaceholder="搜索权限" 
+            showSourceControls="true" showTargetControls="true" metaKeySelection="true">
+            <ng-template let-category pTemplate="categorys">
+                <div class="categoryOption">{{category.id}} - {{category.name}}</div>
+            </ng-template>
+        </p-pickList>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button pButton type="button" label="Save" (click)="saveUserInfo()"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<!--用户注册部分-->
+<p-dialog header="User Register" [(visible)]="displayUserRegister" styleClass="userRegister">
+    <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    <div class="ui-grid ui-grid-responsive ui-fluid userRegisterContent" *ngIf="activeIndex == 0">
+        <div class="ui-grid-row padding-10">
+            <input pInputText id="userName" [(ngModel)]="userRegister.userName" placeholder="用户名"/>
+        </div>
+        <div class="ui-grid-row padding-10">
+            <input pInputText id="phoneNum" [(ngModel)]="userRegister.phoneNum" placeholder="手机号"/>
+        </div>
+        <div class="ui-grid-row padding-10">
+            <input pInputText id="email" [(ngModel)]="userRegister.email" placeholder="邮箱"/>
+        </div>
+        <div class="ui-grid-row padding-10">
+            <input pInputText type="password" id="password" [(ngModel)]="userRegister.password" placeholder="密码"/>
+        </div>
+    </div>
+    <div class="ui-grid ui-grid-responsive ui-fluid userRegisterContent" *ngIf="activeIndex == 1">
+        <div class="padding-10">
+            <p-dropdown [options]="departmentOptions" [(ngModel)]="userRegister.department" [style]="{'width':'100%'}"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-grid ui-grid-responsive ui-fluid userRegisterContent" *ngIf="activeIndex == 2">
+        <div class="padding-10">
+            <p-dropdown [options]="roleOptions" [(ngModel)]="userRegister.role" [style]="{'width':'100%'}"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-grid ui-grid-responsive ui-fluid userRegisterContent" *ngIf="activeIndex == 3">
+        <p-pickList [source]="sourceCategorys" [target]="userRegister.Authority" sourceHeader="Available" targetHeader="Selected" [responsive]="true"
+        [sourceStyle]="{'height':'160px'}" [targetStyle]="{'height':'160px'}" [style]="{'margin-top':'10px','margin-bottom':'0px'}"
+        filterBy="name" dragdrop="true" sourceFilterPlaceholder="搜索权限" targetFilterPlaceholder="搜索权限">
+            <ng-template let-category pTemplate="categorys">
+                <div class="categoryOption">{{category.id}} - {{category.name}}</div>
+            </ng-template>
+        </p-pickList>
+    </div>
+    <p-footer styleClass="p-footer">
+        <button pButton type="button" label="Cancel" (click)="displayUserRegister = false" class="modelButton"></button>
+        <button pButton type="button" label="Save" (click)="saveUserRegister()" class="modelButton"></button>
+    </p-footer>
+</p-dialog>

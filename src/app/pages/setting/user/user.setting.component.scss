@@ -1,0 +1,96 @@
+.saparat {
+    width: 100%;
+    height: 40px;
+    margin: 20px 0px 50px;
+    background: #E5E5E5;
+    border-radius: 5px;
+}
+.ui-grid-col-6 {
+    height: 35px;
+    line-height: 35px;
+}
+.userSetting {
+    width: 45%;
+}
+
+.userSetting > div {
+    max-height: 700px;
+    overflow: auto;
+}
+
+.roleSelect {
+    width: 100%;
+}
+
+.categoryOption {
+    margin: 0px;
+    padding: 0px;
+    font-size:14px;
+    text-align:center;
+    height:20px;
+    line-height:20px;
+    vertical-align:middle;
+}
+
+.toggleButton {
+    width: 100px;
+}
+
+.categoryLabel {
+    height: 25px;
+    line-height: 25px;
+}
+
+.ui-steps .ui-steps-item {
+    width: 25%;
+}
+
+.ui-steps.steps-custom {
+    margin-bottom: 30px;
+}
+ 
+.ui-steps.steps-custom .ui-steps-item .ui-menuitem-link {
+    height: 10px;
+    padding: 0 1em;
+}
+ 
+.ui-steps.steps-custom .ui-steps-item .ui-steps-number {
+    background-color: #0081c2;
+    color: #FFFFFF;
+    display: inline-block;
+    width: 36px;
+    border-radius: 50%;
+    margin-top: -14px;
+    margin-bottom: 10px;
+}
+
+.ui-steps.steps-custom .ui-steps-item .ui-steps-title {
+    color: #555555;
+}
+
+.ui-steps-number {
+    display: none!important;
+}
+
+.userRegister {
+    width: 600px;
+    // height: 400px;
+}
+
+.modelButton {
+    width: 73px;
+}
+
+.userRegisterContent {
+    height: 250px;
+    overflow: auto;
+}
+
+.ui-picklist-target-controls,
+.ui-picklist-source-controls{
+    display: none!important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+}

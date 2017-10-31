@@ -1,0 +1,59 @@
+[{
+    "name": "统计管理",
+    "icon": "fa-building-o",
+    "children": [{
+        "name": "统计",
+        "link": "pages-dashboard"
+    }]
+}, {
+    "name": "文档管理",
+    "icon": "fa-folder-open",
+    "children": [{
+        "name": "统计",
+        "link": "pages-dashboard"
+    }]
+}, {
+    "name": "上传文档",
+    "icon": "fa-cloud-upload",
+    "children": [{
+        "name": "统计",
+        "link": "pages-dashboard"
+    }]
+}, {
+    "name": "下载文档",
+    "icon": "fa-download",
+    "children": [{
+        "name": "统计",
+        "link": "pages-dashboard"
+    }]
+}, {
+    "name": "信息管理",
+    "icon": "fa-envelope",
+    "children": [{
+        "name": "统计",
+        "link": "pages-dashboard"
+    }]
+}, {
+    "name": "管理员",
+    "icon": "fa-group",
+    "children": [{
+        "name": "统计",
+        "link": "pages-dashboard"
+    }]
+}, {
+    "name": "设置",
+    "icon": "fa-cogs",
+    "children": [{
+            "name": "用户设置",
+            "link": "user-setting"
+        },
+        {
+            "name": "角色设置",
+            "link": "role-setting"
+        },
+        {
+            "name": "部门设置",
+            "link": "department-setting"
+        }
+    ]
+}]

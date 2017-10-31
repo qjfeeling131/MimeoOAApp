@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+#preloader {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999999;
+    display: none;
+}
+
+#preloader div {
+    width: 800px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../assets/img/loadding.gif");
+    background-size: 100% 100%;
+}

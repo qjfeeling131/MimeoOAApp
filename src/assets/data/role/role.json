@@ -1,0 +1,41 @@
+{
+    "code": "101",
+    "mssage": "successful",
+    "data": [{
+            "Id": "123456789",
+            "name": "DepartmentManager",
+            "createTime": "2017-07-27t09:25:43",
+            "creatorId": "11111",
+            "creator": "Admin",
+            "modifyId": "",
+            "modifyName": ""
+        },
+        {
+            "Id": "123456789",
+            "name": "Parner",
+            "createTime": "2017-07-28t09:25:43",
+            "creatorId": "11111",
+            "creator": "Admin",
+            "modifyId": "",
+            "modifyName": ""
+        },
+        {
+            "Id": "123456789",
+            "name": "Nornal",
+            "createTime": "2017-07-29t09:25:43",
+            "creatorId": "11111",
+            "creator": "Admin",
+            "modifyId": "",
+            "modifyName": ""
+        },
+        {
+            "Id": "123456789",
+            "name": "Anonymous",
+            "createTime": "2017-07-30t09:25:43",
+            "creatorId": "11111",
+            "creator": "Admin",
+            "modifyId": "",
+            "modifyName": ""
+        }
+    ]
+}

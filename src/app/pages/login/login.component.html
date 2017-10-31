@@ -1,0 +1,43 @@
+<div class="login-div">
+    <form class="login-form" #loginForm="ngForm">
+        <div class="ui-g jx-loginInput">
+            <div class="ui-g-12">
+                <h1 class="forgetPassWord">
+                    Mimeo系统管理后台
+                </h1>
+            </div>
+            <div class="ui-g-12 verificationInfo">
+                {{loginerrortext}}
+            </div>
+            <div class="ui-g-12">
+                <div class="input-box">
+                    <span class="fa fa-user"></span>
+                    <input name="accountName" type="text" placeholder="请输入用户名" required [(ngModel)]="loginUserInfo.accountName" />
+                </div>
+            </div>
+            <div class="verificationInfo" *ngIf="verificationInfo.accountName">
+                {{verificationInfo.accountName}}
+            </div>
+            <div class="ui-g-12 ">
+                <div class="input-box ">
+                    <span class="fa fa-unlock-alt "></span>
+                    <input name="password" type="password" placeholder="请输入密码" required [(ngModel)]="loginUserInfo.password" />
+                </div>
+            </div>
+            <div class="verificationInfo" *ngIf="verificationInfo.password">
+                {{verificationInfo.password}}
+            </div>
+            <div class="ui-g-12 wjx-padding-0">
+                <div class="ui-g-8">
+                </div>
+                <div class="ui-g-4">
+                    <a routerLink="/forgot">忘记密码</a>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <button class="ui-button-primary" type="submit" label="{{btnLogin}}" pButton (click)="login()"></button>
+            </div>
+        </div>
+    </form>
+</div>
+<my-loading [loading]="isLoadding"></my-loading>
